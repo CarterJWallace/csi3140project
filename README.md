@@ -5,6 +5,23 @@ Current plan is to use EVE Online's available API and downloadable data assets t
 is profitable to trade or to manufacture. The user should be able to change settings based on their own trained skills
 that will affect the calculated and shown data.
 
+## UI Design System
+### Colour Palette
+Colour palette found using coolors.co:
+  * #02040F - Off-black for text
+  * #F5DADA - Off-white for backgrounds
+  * #AAAE7F - Grey for soft emphasis (borders)
+  * #0F5257 + #0B3142 Blues for UI elements (buttons)
+### Fonts and Type Scale
+
+### Icons (and other images)
+
+### Buttons and Form Elements
+
+### UI Components (e.g. popups)
+
+### Example Pages
+
 ## Development Plan
 ### Stage 1
 Mock up webpage design and styling.
