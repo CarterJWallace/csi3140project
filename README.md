@@ -13,12 +13,24 @@ Colour palette found using coolors.co:
   * #AAAE7F - Grey for soft emphasis (borders)
   * #0F5257 + #0B3142 Blues for UI elements (buttons)
 ### Fonts and Type Scale
+The main font will be from Google's font service, named Play (https://fonts.google.com/specimen/Play). 
+
+The type scale was decided using type-scale.com and will be Minor Third (1.200).
 
 ### Icons (and other images)
+Images will be obtained through EVE Online's developer resources (developers.eveonline.com/resource/resources).
+
+Images and icons will be bordered using the Grey with rounded corners.
+
+No icons are currently planned but will be obtained on a need-to-use basis.
 
 ### Buttons and Form Elements
+Buttons will use the lighter and darker Blue with rounded corners. Colours will alternate on click.
+
+Forms will use the Grey with rounded corners. Possibly a darker tint than the Off-white for the background.
 
 ### UI Components (e.g. popups)
+No popups are planned currently but an accordion-style dropdown list is planned. Depending on the number of levels the Blues will be used for the level headers with '+' to denote that it can be opened and '-' to denote that it can be closed. Only one selection from each level can be open at a time to save space on the screen. The lowest level will use the basic Off-white and Off-black stlying.
 
 ### Example Pages
 
