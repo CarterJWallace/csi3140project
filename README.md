@@ -44,9 +44,9 @@ Colours will alternate on click/hover.
 No popups are planned currently but an accordion-style dropdown list is planned. Depending on the number of levels the Blues will be used for the level headers with '+' to denote that it can be opened and '-' to denote that it can be closed. Only one selection from each level can be open at a time to save space on the screen. The lowest level will use the basic Off-white and Off-black stlying.
 
 ### Example Pages
-[Landing Page](LandingPage.html)
-[Directory](Directory.html)
-[Search Results](SearchResults.html)
+  * [Landing Page](LandingPage.html)
+  * [Directory](Directory.html)
+  * [Search Results](SearchResults.html)
 
 ## Development Plan
 ### Stage 1
