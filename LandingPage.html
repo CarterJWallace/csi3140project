@@ -5,15 +5,15 @@
 		<link type="text/css" rel="stylesheet" href="LandingPage.css">
 	</head>
 	<body>
-		<div class = "Header">
+		<div id = "Header">
 			<h1>Welcome to the Landing Page</h1>
 		</div>
-		<div class = "Body">
+		<div id = "Body">
 			<form autocomplete = "on">
 				<div class = "Search">
-					<input type = "text" placeholder = "Search.." id = "searchBar">
-					<button type ="button" id = "goButton" class = "button">Go</button>
-					<button type ="button" id = "directoryButton" class = "button">Directory</button>
+					<input type = "text" placeholder = "Search.." id = "searchBar" class = "searchbar">
+					<button type ="button" id = "goButton" class = "button" onclick="window.location.href = 'SearchResults.html';">Go</button>
+					<button type ="button" id = "directoryButton" class = "button" onclick="window.location.href = 'Directory.html';">Directory</button>
 				</div>
 			</form>
 			
