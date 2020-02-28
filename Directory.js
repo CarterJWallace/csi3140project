@@ -19,7 +19,7 @@ function start() {
 			if(content.style.maxHeight){
 				content.style.maxHeight = null;
 			} else{
-				content.style.maxHeight = content.scrollHeight + "px";
+				content.style.maxHeight = "100%"
 			}
 		});
 	}
@@ -36,11 +36,14 @@ function start() {
 			}
 			this.classList.toggle("active");
 			let content = this.nextElementSibling;
+			let contentParent = content.parentElement;
 			if(content.style.maxHeight){
 				content.style.maxHeight = null;
 			} else{
-				content.style.maxHeight = content.scrollHeight + "px";
+				content.style.maxHeight = "100%";
+				contentParent.style.maxHeight = "100%";
 			}
+			console.log(content.style.maxHeight);
 		});
 	}
 }
