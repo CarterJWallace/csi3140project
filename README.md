@@ -52,8 +52,13 @@ No popups are planned currently but an accordion-style dropdown list is planned.
   
 ## Deployment + Test Instructions
   * Download and install XAMPP (located at https://www.apachefriends.org/index.html)
-  * Open XAMPP Control Panel and start Apache + MySQL services.
+    * Linux: 'chmod 755 xampp-linux-%version%-installer.run' then 'sudo ./xampp-linux-%version%-installer.run'
+  * Start XAMPP
+    * Windows: Open XAMPP Control Panel and start Apache + MySQL services.
+    * Linux: Run command 'sudo /opt/lampp/lampp start'
   * Extract csi3140project.zip and copy it into the htdocs folder (default location: C:\xampp\htdocs)
+    * Windows: default location: C:\xampp\htdocs
+    * Linux: default location: /opt/lampp/htdocs
   * Open a browser and navigate to localhost/phpadmin
     * If there is not a 'test' database, create one. Then import 'testtable.sql' into that database.
   * Navigate to localhost/csi3140project
