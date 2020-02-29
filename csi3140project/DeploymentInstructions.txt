@@ -1,0 +1,14 @@
+Steps for setting up website:
+
+- Download and install XAMPP (https://www.apachefriends.org/index.html)
+- Open XAMPP Control Panel
+	- Install Apache + MySQL service.
+	- Start Apache + MySQL.
+- Extract csi3140project and copy folder into htdocs folder (default: C:\xampp\htdocs)
+- Open browser and navigate to localhost/phpmyadmin
+	- Should already have a 'test' database, if not, create one.
+	- In 'test' database, import testtable.sql from directory.
+- Navigate to localhost/csi3140project
+	- If setup has succeeded then webpage should display the same as ExampleIndex.PNG
+	- If failure messages occur from SQL lines, could possibly be login issues.
+		- Login and SQL DB information has to be changed at index.php
