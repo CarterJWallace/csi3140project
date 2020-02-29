@@ -38,18 +38,32 @@ Buttons will use the lighter and darker blue with rounded corners. As will the t
 
 Forms will use the lighter and darker green with rounded corners. 
 
-Colours will alternate on click/hover.
+Dropdowns will match their parent's formatting as much as possible.
+
+Colours will alternate on click/hover for buttons.
 
 ### UI Components (e.g. popups)
-No popups are planned currently but an accordion-style dropdown list is planned. Depending on the number of levels the Blues will be used for the level headers with '+' to denote that it can be opened and '-' to denote that it can be closed. Only one selection from each level can be open at a time to save space on the screen. The lowest level will use the basic Off-white and Off-black stlying.
+No popups are planned currently but an accordion-style dropdown list is planned. Depending on the number of levels the Blues will be used for the level headers with '+' to denote that it can be opened and '-' to denote that it can be closed. The lowest level be a single container which will include clickable items.
 
 ### Example Pages
   * [Landing Page](LandingPage.html)
   * [Directory](Directory.html)
   * [Search Results](SearchResults.html)
+  
+## Deployment + Test Instructions
+  * Download and install XAMPP (located at https://www.apachefriends.org/index.html)
+  * Open XAMPP Control Panel and start Apache + MySQL services.
+  * Extract csi3140project.zip and copy it into the htdocs folder (default location: C:\xampp\htdocs)
+  * Open a browser and navigate to localhost/phpadmin
+    * If there is not a 'test' database, create one. Then import 'testtable.sql' into that database.
+  * Navigate to localhost/csi3140project
+    * If setup succeeded then the webpage should match ExampleIndex.PNG (as shown below), if not then the login settings may need to be changed in index.php
+- - - -
+![Example Output](csi3140project/ExampleIndex.PNG)
+- - - -
 
 ## Development Plan
-### Stage 1
+### Stage 1 - Complete
 Mock up webpage design and styling.
 Get basic webpage running locally for development.
 Figure out webserver and deployment plan.
