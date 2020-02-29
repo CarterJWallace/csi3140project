@@ -140,3 +140,7 @@ h1{
 .landingbutton:hover{
 	background-color: #535C55;
 }
+
+*:focus{
+	outline: none;
+}

@@ -3,6 +3,7 @@
 		<meta charset="utf-8">
 		<title>Landing Page</title>
 		<link type="text/css" rel="stylesheet" href="LandingPage.css">
+		<script src = "LandingPage.js"></script>
 	</head>
 	<body>
 		<div id = "Header">
@@ -11,12 +12,20 @@
 		<div id = "Body">
 			<form autocomplete = "on">
 				<div class = "Search">
-					<input type = "text" placeholder = "Search.." id = "searchBar" class = "searchbar">
-					<button type ="button" id = "goButton" class = "button" onclick="window.location.href = 'SearchResults.html';">Go</button>
+					<div class = "dropdownBar">
+						<input type = "text" placeholder = "Search.." id = "searchBar" class = "searchbar">
+						<div id = "dropdown" class = "dropdown-content">
+							<p>Item 1</p>						
+							<p>Item 2</p>							
+							<p>Item 3</p>						
+							<p>Item 4</p>						
+							<p>Item 5</p>
+						</div>
+					</div>
+					<button type ="button" id = "goButton" class = "button";">Go</button>
 					<button type ="button" id = "directoryButton" class = "button" onclick="window.location.href = 'Directory.html';">Directory</button>
 				</div>
 			</form>
-			
 		</div>
 	</body>
 </html>

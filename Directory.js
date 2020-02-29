@@ -1,3 +1,5 @@
+window.addEventListener("load", start, false);
+
 function start() {
 	let level1 = document.getElementsByClassName("level1");
 	let level2 = document.getElementsByClassName("level2");
@@ -43,8 +45,7 @@ function start() {
 				content.style.maxHeight = "100%";
 				contentParent.style.maxHeight = "100%";
 			}
-			console.log(content.style.maxHeight);
 		});
 	}
 }
-window.addEventListener("load", start, false);
+

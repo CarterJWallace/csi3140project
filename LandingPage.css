@@ -38,12 +38,40 @@ body{
 	display: inline-block;
 	font-family: 'Play', sans-serif;
 	font-weight:bold;
+	outline: none;
 }
 
 .button:hover{
 	background-color: #535C55;
 	border: 5px solid #748077;
 	border-radius: 5px;
+}
+
+.dropdownBar{
+	position: relative;
+	display: inline-block;
+	height: 2.5em;
+}
+
+.dropdown-content{
+	background-color: #A6AEA8;
+	display: none;
+	position: absolute;
+	border: 5px solid #535C55;
+	border-radius: 5px;
+	z-index: 1;
+	width: 24.25em;
+	min-width: 10em;
+}
+
+.dropdown-content p{
+	padding: 3px 5px;
+	margin: 0 0 0 0;
+	cursor: pointer;
+}
+
+.dropdown-content p:hover{
+	background-color: #748077;
 }
 
 input[type=text]{
@@ -53,6 +81,7 @@ input[type=text]{
 	width: 30em;
 	height: 2.5em;
 	font-family: 'Play', sans-serif;
+	outline: none;
 }
 
 h1{

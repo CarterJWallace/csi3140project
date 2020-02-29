@@ -3,6 +3,7 @@
 		<meta charset="utf-8">
 		<title> Search Results </title>
 		<link type = "text/css" rel = "stylesheet" href = "SearchResults.css">
+		<script src = "SearchResults.js"></script>
 	</head>
 	<body>
 		<div id = "Header">
@@ -11,63 +12,73 @@
 		<div id = "Body">
 			<div class = "LeftColumn">
 				<div class = "Options">
-					<select name = "Option 1" class = "option left">
-						<option selected disabled>Option 1</option>
-						<option value = "1.1">1.1</option>
-						<option value = "1.2">1.2</option>
-						<option value = "1.3">1.3</option>
-						<option value = "1.4">1.4</option>
-						<option value = "1.5">1.5</option>
+					<select id = "Option-1" class = "option left">
+						<option selected disabled>Skill 1</option>
+						<option value = "1.00">Level 1 - 0%</option>
+						<option value = "1.05">Level 2 - 5%</option>
+						<option value = "1.10">Level 3 - 10%</option>
+						<option value = "1.15">Level 4 - 15%</option>
+						<option value = "1.20">Level 5 - 20%</option>
 					</select>
-					<select name = "Option 2" class = "option middle">
-						<option selected disabled>Option 2</option>
-						<option value = "2.1">2.1</option>
-						<option value = "2.2">2.2</option>
-						<option value = "2.3">2.3</option>
-						<option value = "2.4">2.4</option>
-						<option value = "2.5">2.5</option>
+					<select id = "Option-2" class = "option middle">
+						<option selected disabled>Skill 2</option>
+						<option value = "1.00">Level 1 - 0%</option>
+						<option value = "1.05">Level 2 - 5%</option>
+						<option value = "1.10">Level 3 - 10%</option>
+						<option value = "1.15">Level 4 - 15%</option>
+						<option value = "1.20">Level 5 - 20%</option>
 					</select>
-					<select name = "Option 3" class = "option right">
-						<option selected disabled>Option 3</option>
-						<option value = "3.1">3.1</option>
-						<option value = "3.2">3.2</option>
-						<option value = "3.3">3.3</option>
-						<option value = "3.4">3.4</option>
-						<option value = "3.5">3.5</option>
+					<select id = "Option-3" class = "option right">
+						<option selected disabled>Skill 3</option>
+						<option value = "1.00">Level 1 - 0%</option>
+						<option value = "1.05">Level 2 - 5%</option>
+						<option value = "1.10">Level 3 - 10%</option>
+						<option value = "1.15">Level 4 - 15%</option>
+						<option value = "1.20">Level 5 - 20%</option>
 					</select>
 				</div>
 				<table>
 					<thead>
 						<tr>
-							<th colspan="2"> Table Header </th>
+							<th colspan="3"><div id = "tableHeader"> Table Header </div></th>
+						</tr>
+						<tr>
+							<th>Item</th>
+							<th>Quantity</th>
+							<th>Cost</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><div class="rowstart"> Item 1 </div></td>
-							<td> Cost 1 </td>
+							<td class = "rowstart"> Subitem 1 </td>
+							<td class = "quantity"> 1 </td>
+							<td class = "cost"> 1 </td>
 						</tr>
 						<tr>
-							<td><div class="rowstart"> Item 2 </div></td>
-							<td> Cost 2 </td>
+							<td class="rowstart"> Subitem 2 </td>
+							<td class = "quantity"> 2 </td>
+							<td class = "cost"> 2 </td>
 						</tr>
 						<tr>
-							<td><div class="rowstart"> Item 3 </div></td>
-							<td> Cost 2 </td>
+							<td class="rowstart"> Subitem 3 </td>
+							<td class = "quantity"> 3 </td>
+							<td class = "cost"> 3 </td>
 						</tr>
 						<tr>
-							<td><div class="rowstart"> Item 4 </div></td>
-							<td> Cost 2 </td>
+							<td class="rowstart"> Subitem 4 </td>
+							<td class = "quantity"> 4 </td>
+							<td class = "cost"> 4 </td>
 						</tr>
 						<tr>
-							<td><div class="rowstart"> Item 5 </div></td>
-							<td> Cost 2 </td>
+							<td class = "rowstart"> Subitem 5 </td>
+							<td class = "quantity"> 5 </td>
+							<td class = "cost"> 5 </td>
 						</tr>
 					</tbody>
 					<tfoot>
 						<tr>
-							<td><b> Total </b></td>
-							<td> Total Cost </td>
+							<td colspan = "2" class = "totalLabel"> Total Cost: </td>
+							<td id = "finalCost"> 0 </td>
 						</tr>
 					</tfoot>
 				</table>
