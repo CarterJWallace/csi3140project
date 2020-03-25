@@ -1,30 +1,3 @@
-<?php /*
-	<?php
-	$mysqli = new mysqli("localhost", "root", "", "test");
-	?>
-	<html>
-		<head>
-			<title>PHP Test</title>
-		</head>
-		<body>
-
-		<?php echo '<p>Hello World</p>'; ?>
-		<?php echo '<p>This indicates that the PHP is working</p>'; ?>
-		<?php if ($mysqli -> connect_errno){
-			echo '<p>Failed to connect to MySQL: ' . $mysqli -> connect_error . ' </p>';
-		} else{
-			echo '<p>Successfully connected to MySQL</p>';
-			if ($result = $mysqli -> query("SELECT * FROM testtable")){
-				echo '<p>Returned number of rows are: ' . $result -> num_rows;
-				$row = $result -> fetch_row();
-				echo '<p>First row: ', $row[0], ' ', $row[1], '</p>';
-				$result -> close();
-			}
-		}
-		$mysqli -> close(); ?>
-		</body>
-	</html>
-*/ ?>
 <?php
 	$names = array();
 	$mysqli = new mysqli("localhost", "root", "", "csi3140project");
@@ -32,16 +5,38 @@
 		echo '<p>Failed to connect to MySQL: ' . $mysqli -> connect_error . ' </p>';
 	} else{
 		//echo '<p>Successfully connected to MySQL</p>';
-		if ($result = $mysqli -> query("SELECT name FROM items")){
-			global $names;
+		if ($result = $mysqli -> query("SELECT name, typeID FROM items ORDER BY name ASC")){
+			//global $names;
 			for($i = 0; $i < $result -> num_rows; $i++){
-				$names[$i] = ($result -> fetch_row())[0];
+				$row = $result -> fetch_array(MYSQLI_NUM);
+				$names[$i] = array();
+				$names[$i]['name'] = $row[0];
+				$names[$i]['id'] = $row[1];
 			}
 			$result -> close();
 		}
 	}
+	
+	if(array_key_exists('submit', $_POST)){
+		submit();
+	} else if(array_key_exists('directory', $_POST)){
+		goToDir();
+	}
+	
+	//Need $names to be accessible in this function.
+	function submit(){
+		if(array_key_exists('searchbar', $_POST)){
+			if($id = array_search($_POST['searchbar'], $names)){
+				echo $id;
+			}
+		}
+	}
+	
+	//Need to figure out how directory will be managed, php?
+	function goToDir(){	
+		header("Location:Directory.html");
+	}
 ?>
-
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -54,28 +49,23 @@
 			<h1>Welcome to the Landing Page</h1>
 		</div>
 		<div id = "Body">
-			<form autocomplete = "on">
+			<form autocomplete = "on" method = "post">
 				<div class = "Search">
 					<div class = "dropdownBar">
-						<input type = "text" placeholder = "Search.." id = "searchBar" class = "searchbar">
+						<input type = "text" placeholder = "Search.." id = "searchBar" class = "searchbar" name = "searchbar">
 						<div id = "dropdown" class = "dropdown-content">
 							<?php
-								global $names;
+								//global $names;
 								for ($i = 0; $i < count($names); $i++){
-									echo '<p>' . $names[$i] . '</p>';
+									echo '<p>' . $names[$i]['name'] . '</p>';
 								}
 							?>
 						</div>
 					</div>
-					<button type ="button" id = "goButton" class = "button" ;">Go</button>
-					<button type ="button" id = "directoryButton" class = "button" onclick="window.location.href = 'Directory.html';">Directory</button>
+					<input type ="submit" class="button" name="submit" value="Go" />
+					<input type ="submit" class="button" name="directory" value="Directory" />
 				</div>
 			</form>
 		</div>
 	</body>
 </html>
-	
-<?php 
-	
-	//echo file_get_contents("LandingPage.html"); 
-?>

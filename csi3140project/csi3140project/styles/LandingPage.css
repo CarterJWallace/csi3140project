@@ -62,6 +62,8 @@ body{
 	z-index: 1;
 	width: 24.25em;
 	min-width: 10em;
+	max-height: 250px;
+	overflow: auto;
 }
 
 .dropdown-content p{
@@ -73,6 +75,19 @@ body{
 .dropdown-content p:hover{
 	background-color: #748077;
 }
+
+::-webkit-scrollbar{
+	width: 10px; 
+}
+
+::-webkit-scrollbar-track{
+	background: #748077;
+}
+
+::-webkit-scrollbar-thumb{
+	background: #535C55;
+}
+
 
 input[type=text]{
 	border: 5px solid #535C55;
