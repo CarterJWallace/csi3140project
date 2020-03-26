@@ -3,33 +3,14 @@ window.addEventListener("load", start, false);
 function start() {
 	let searchBar = document.getElementById("searchBar");
 	let content = document.getElementsByTagName('p');
+	let myForm = document.getElementById("myForm");
+	myForm.reset();
 	searchBar.value = "";
-	document.getElementById("goButton").addEventListener("click", search, false);
 	searchBar.addEventListener("focus", expand, false);
 	searchBar.addEventListener("blur", hide, false);
 	searchBar.addEventListener("keyup", filter, false);
 	for(let i = 0; i < content.length; i++){
 		content[i].addEventListener("mousedown", fill, false);
-	}
-}
-
-function search(){
-	let query = searchBar.value;
-	let p = document.getElementsByTagName('p');
-	let flag = false;
-	for(let i = 0; i < p.length; i++){
-		if(p[i].innerText == query){
-			flag = true;
-			break;
-		}
-	}
-	if(flag){
-		query = query.trim().toLowerCase();
-		query = query.replace(" ", "");
-		window.location.href = "SearchResults.html?" + query;
-	}
-	else {
-		location.reload();
 	}
 }
 

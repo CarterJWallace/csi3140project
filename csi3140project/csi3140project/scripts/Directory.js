@@ -8,13 +8,13 @@ function start() {
 
 	for(i = 0; i < level1.length; i++){
 		level1[i].addEventListener("click", function(){
-			let label = this.innerHTML;
+			let label = this.value;
 			if (label[0] == '+'){
 				label = label.replace("+", "-");
-				this.innerHTML = label;
+				this.value = label;
 			} else{
 				label = label.replace("-", "+");
-				this.innerHTML = label;
+				this.value = label;
 			}
 			this.classList.toggle("active");
 			let content = this.nextElementSibling;
@@ -28,13 +28,13 @@ function start() {
 
 	for(i = 0; i < level2.length; i++){
 		level2[i].addEventListener("click", function(){
-			let label = this.innerHTML;
+			let label = this.value;
 			if (label[0] == '+'){
 				label = label.replace("+", "-");
-				this.innerHTML = label;
+				this.value = label;
 			} else{
 				label = label.replace("-", "+");
-				this.innerHTML = label;
+				this.value = label;
 			}
 			this.classList.toggle("active");
 			let content = this.nextElementSibling;
@@ -48,4 +48,3 @@ function start() {
 		});
 	}
 }
-
