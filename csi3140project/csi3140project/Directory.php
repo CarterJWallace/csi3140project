@@ -29,10 +29,6 @@
 			$mysqli -> close();
 		}
 	}
-
-	function submit($query){
-		header("Location:SearchResults.html?q=" . $query);
-	}
 ?>
 <html>
 	<head>
@@ -46,20 +42,20 @@
 			<h1>Welcome to the Directory</h1>
 		</div>
 		<div id = "Body">
-			<form action = "./SearchResults.html" method = "post">
-			<input type = "button" class = "level1" value ="+ Frigates" />
+			<button class = "level1">+ Frigates</button>
 			<div class = "content">
 			<?php
 				global $items;
 				global $factions;
 				for($i = 0; $i < count($factions); $i++){
-					echo '<input type = "button" class = "level2" value ="+ ' . $factions[$i]['factionName'] . '" />';
+					echo '<button class = "level2">+ ' . $factions[$i]['factionName'] . '</button>';
 					echo '<div class = "content">';
 					echo '<div class = "level3">';
 					echo '<ul>';
 					for($j = 0; $j < count($items); $j++){
 						if($factions[$i]['factionID'] == $items[$j]['factionID']){
-						echo '<li><input type = "submit" class = "level3button" value ="' . $items[$j]['name'] . '" /></li>';
+							$string = "window.location.href = './SearchResults.html?q=" . $items[$j]['typeID'] . "';";
+							echo '<li><button class = "level3button" onclick = "' . $string . '">' . $items[$j]['name'] . '</button></li>';
 						}
 					}
 					echo '</div>';
@@ -67,7 +63,6 @@
 				}
 			?>		
 			</div>
-			</form>
 		</div>
 		<div id = "Footer">
 			<button type ="button" id = "landingbutton" class = "landingButton" onclick="window.location.href = './';">Back to the Landing Page</button>
