@@ -54,7 +54,7 @@
 					echo '<ul>';
 					for($j = 0; $j < count($items); $j++){
 						if($factions[$i]['factionID'] == $items[$j]['factionID']){
-							$string = "window.location.href = './SearchResults.html?q=" . $items[$j]['typeID'] . "';";
+							$string = "window.location.href = './SearchResults.php?q=" . $items[$j]['typeID'] . "';";
 							echo '<li><button class = "level3button" onclick = "' . $string . '">' . $items[$j]['name'] . '</button></li>';
 						}
 					}

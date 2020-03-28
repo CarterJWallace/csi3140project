@@ -2,17 +2,17 @@ window.addEventListener("load", start, false);
 let originalTotal = 0.00;
 
 function start() {
-	let webpage = window.location.href;
-	let query = webpage.substring((webpage.indexOf('?') + 1));
-	let header = document.getElementById("tableHeader");
+	//let webpage = window.location.href;
+	//let query = webpage.substring((webpage.indexOf('?q=') + 1));
+	//let header = document.getElementById("tableHeader");
 	let options = document.getElementsByClassName("option");
-	if(query){
+	/*if(query){
 		query = query.charAt(0).toUpperCase() + query.substring(1);
 		query = query.substring(0,4) + " " + query.substring(4);
 		header.innerHTML = query;
 	} else{
 		header.innerHTML = "Item Not Found";
-	}
+	}*/
 	calculate();
 	for(let i = 0; i < options.length; i++){
 		options[i].addEventListener("change", update, false);

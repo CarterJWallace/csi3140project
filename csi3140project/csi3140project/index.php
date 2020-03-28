@@ -29,7 +29,7 @@
 		global $items;
 		$index = array_search($search, array_column($items, 'name'));
 		if($index !== false){
-			header("Location:SearchResults.html?q=" . $items[$index]['id']);
+			header("Location:SearchResults.php?q=" . $items[$index]['id']);
 		}
 	}
 ?>
