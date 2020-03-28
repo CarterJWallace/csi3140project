@@ -1,22 +1,37 @@
 <?php
 	$items = array();
 	$factions = array();
-	$query = "";
-	$index = null;
-	$tritanium = 0;
-	$pyerite = 0;
-	$mexallon = 0;
-	$isogen = 0;
-	$nocxium = 0;
-	$zydrine = 0;
-	$megacyte = 0;
+	$index = false;
+	$tritanium = array();
+	$pyerite = array();
+	$mexallon = array();
+	$isogen = array();
+	$nocxium = array();
+	$zydrine = array();
+	$megacyte = array();
+	$query = array();
+	$tritanium['quantity'] = 0;
+	$pyerite['quantity'] = 0;
+	$mexallon['quantity'] = 0;
+	$isogen['quantity'] = 0;
+	$nocxium['quantity'] = 0;
+	$zydrine['quantity'] = 0;
+	$megacyte['quantity'] = 0;
+	$tritanium['cost'] = 0;
+	$pyerite['cost'] = 0;
+	$mexallon['cost'] = 0;
+	$isogen['cost'] = 0;
+	$nocxium['cost'] = 0;
+	$zydrine['cost'] = 0;
+	$megacyte['cost'] = 0;
+	$query['cost'] = 0;
 	$mysqli = new mysqli("localhost", "root", "", "csi3140project");
+	$url = "https://market.fuzzwork.co.uk/aggregates/?station=60003760&types=34,35,36,37,38,39,40";
 	if ($mysqli -> connect_errno){
 		echo '<p>Failed to connect to MySQL: ' . $mysqli -> connect_error . ' </p>';
 	} else{
 		//echo '<p>Successfully connected to MySQL</p>';
 		if ($result = $mysqli -> query("SELECT name, typeID, Tritanium, Pyerite, Mexallon, Isogen, Nocxium, Zydrine, Megacyte FROM items ORDER BY name ASC")){
-			global $items;
 			for($i = 0; $i < $result -> num_rows; $i++){
 				$row = $result -> fetch_array(MYSQLI_NUM);
 				$items[$i] = array();
@@ -34,24 +49,27 @@
 		}
 	}
 	if(array_key_exists("q", $_GET)){
-		global $query;
-		global $index;
-		global $tritanium;
-		global $pyerite;
-		global $mexallon;
-		global $isogen;
-		global $nocxium;
-		global $zydrine;
-		global $megacyte;
-		$query = $_GET["q"];
-		$index = array_search($query, array_column($items, 'typeID'));
-		$tritanium = $items[$index]['tritanium'];
-		$pyerite = $items[$index]['pyerite'];
-		$mexallon = $items[$index]['mexallon'];
-		$isogen = $items[$index]['isogen'];
-		$nocxium = $items[$index]['nocxium'];
-		$zydrine = $items[$index]['zydrine'];
-		$megacyte = $items[$index]['megacyte'];
+		$query['typeID'] = $_GET["q"];
+		$index = array_search($query['typeID'], array_column($items, 'typeID'), true);
+		if($index !== false){
+			$tritanium['quantity'] = $items[$index]['tritanium'];
+			$pyerite['quantity'] = $items[$index]['pyerite'];
+			$mexallon['quantity'] = $items[$index]['mexallon'];
+			$isogen['quantity'] = $items[$index]['isogen'];
+			$nocxium['quantity'] = $items[$index]['nocxium'];
+			$zydrine['quantity'] = $items[$index]['zydrine'];
+			$megacyte['quantity'] = $items[$index]['megacyte'];
+			$url = $url . "," . $query['typeID'];
+			$json = (json_decode(file_get_contents($url), true));
+			$tritanium['cost'] = ((float)$json["34"]["sell"]["min"]);
+			$pyerite['cost'] = ((float)$json["35"]["sell"]["min"]);
+			$mexallon['cost'] = ((float)$json["36"]["sell"]["min"]);
+			$isogen['cost'] = ((float)$json["37"]["sell"]["min"]);
+			$nocxium['cost'] = ((float)$json["38"]["sell"]["min"]);
+			$zydrine['cost'] = ((float)$json["39"]["sell"]["min"]);
+			$megacyte['cost'] = ((float)$json["40"]["sell"]["min"]);
+			$query['cost'] = ((float)$json[$query['typeID']]["sell"]["min"]);
+		}
 	}
 ?>
 <html>
@@ -110,10 +128,9 @@
 						<thead>
 							<tr>
 								<?php
-								global $query;
 								global $items;
 								global $index;
-									if(!empty($query)){
+									if($index !== false){
 										$thead = $items[$index]['name'];
 									} else{
 										$thead = "No item found";
@@ -130,44 +147,44 @@
 						<tbody>
 							<tr>
 								<td class = "rowstart">Tritanium</td>
-								<td class = "quantity"><?php global $tritanium; echo $tritanium; ?></td>
-								<td class = "cost"> 1 </td>
+								<td class = "quantity"><?php global $tritanium; echo $tritanium['quantity']; ?></td>
+								<td class = "cost"><?php global $tritanium; echo $tritanium['cost']; ?></td>
 							</tr>
 							<tr>
 								<td class="rowstart">Pyerite</td>
-								<td class = "quantity"><?php global $pyerite; echo $pyerite; ?></td>
-								<td class = "cost"> 2 </td>
+								<td class = "quantity"><?php global $pyerite; echo $pyerite['quantity']; ?></td>
+								<td class = "cost"><?php global $pyerite; echo $pyerite['cost']; ?></td>
 							</tr>
 							<tr>
 								<td class="rowstart">Mexallon</td>
-								<td class = "quantity"><?php global $mexallon; echo $mexallon; ?></td>
-								<td class = "cost"> 3 </td>
+								<td class = "quantity"><?php global $mexallon; echo $mexallon['quantity']; ?></td>
+								<td class = "cost"><?php global $mexallon; echo $mexallon['cost']; ?></td>
 							</tr>
 							<tr>
 								<td class="rowstart">Isogen</td>
-								<td class = "quantity"><?php global $isogen; echo $isogen; ?></td>
-								<td class = "cost"> 4 </td>
+								<td class = "quantity"><?php global $isogen; echo $isogen['quantity']; ?></td>
+								<td class = "cost"><?php global $isogen; echo $isogen['cost']; ?></td>
 							</tr>
 							<tr>
 								<td class = "rowstart">Nocxium</td>
-								<td class = "quantity"><?php global $nocxium; echo $nocxium; ?></td>
-								<td class = "cost"> 5 </td>
+								<td class = "quantity"><?php global $nocxium; echo $nocxium['quantity']; ?></td>
+								<td class = "cost"><?php global $nocxium; echo $nocxium['cost']; ?></td>
 							</tr>
 							<tr>
 								<td class = "rowstart">Zydrine</td>
-								<td class = "quantity"><?php global $zydrine; echo $zydrine; ?></td>
-								<td class = "cost"> 6 </td>
+								<td class = "quantity"><?php global $zydrine; echo $zydrine['quantity']; ?></td>
+								<td class = "cost"><?php global $zydrine; echo $zydrine['cost']; ?></td>
 							</tr>
 							<tr>
 								<td class = "rowstart">Megacyte</td>
-								<td class = "quantity"><?php global $megacyte; echo $megacyte; ?></td>
-								<td class = "cost"> 7 </td>
+								<td class = "quantity"><?php global $megacyte; echo $megacyte['quantity']; ?></td>
+								<td class = "cost"><?php global $megacyte; echo $megacyte['cost']; ?></td>
 							</tr>							
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colspan = "2" class = "totalLabel"> Manufacturing Cost: </td>
-								<td id = "manuCost"> 0 </td>
+								<td colspan = "2" class = "totalLabel"> Ship's Cost: </td>
+								<td id = "manuCost"><?php global $query; echo $query['cost']; ?></td>
 							</tr>
 							<tr>
 								<td colspan = "2" class = "totalLabel"> Total Cost: </td>

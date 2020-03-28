@@ -128,23 +128,16 @@ h1{
 .options table {
 	width: 95%;
 	margin: 0% 2.5% 0% 2.5%;
-	#height: 80%;
 }
 
 .data table {
 	background-color: #6B818C;
-	#align-self: stretch;
-	#overflow-x: auto;
-	#overflow-y: auto;
 	flex-grow: 1;
-	#align-self: center;
 	border: 5px solid #394658;
 	border-collapse: collapse;
 	width: 95%;
-	#height: 100%;
 	margin: 5% 2.5% 5% 2.5%;
-	#margin-top: 3%;
-	#margin-bottom: 3%;
+	table-layout: fixed;
 }
 
 .data tfoot {
