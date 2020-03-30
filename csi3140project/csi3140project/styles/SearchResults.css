@@ -76,13 +76,14 @@ h1{
 
 .frame {
 	border: 5px solid #394658;
-	margin: 17% 17% 17% 17%;
+	margin: 23%;
 	width: 128px;
 	height: 128px;
 }
 
 .results {
 	border-top: 5px solid #535C55;
+	padding-top: 3.5%;
 }
 
 .landingbutton{
@@ -146,6 +147,10 @@ h1{
 	border-collapse: collapse;
 	width: 95%;
 	margin: 2.5% 2.5% 1.25% 2.5%;
+}
+
+.results tbody td{
+	border-right: 5px solid #394658;
 }
 
 .market table {

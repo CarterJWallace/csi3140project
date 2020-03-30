@@ -241,17 +241,48 @@
 				</div>
 				<div class = "Results">
 					<table>
+						<thead>
+							<tr>
+								<th align = "center" colspan = "2">Manufacture</th>
+							</tr>
+						</thead>
 						<tbody>
 							<tr>
-								<td align = "right" class = "totalLabel">Manufacture Cost:</td>
+								<td align = "right" class = "totalLabel">Cost:</td>
 								<td align = "center" id = "totalManufactureCost">0</td>								
 							</tr>
 							<tr>
-								<td colspan = "2" height = "0"> </td>
+								<td align = "right" class = "totalLabel">Profit:</td>
+								<td align = "center" id = "totalManufactureProfit">0</td>								
+							</tr>
+						</tbody>
+					</table>
+					<table>
+						<thead>
+							<tr>
+								<th align = "center" colspan = "2">Trade</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align = "right" class = "totalLabel">Cost:</td>
+								<td align = "center" id = "totalTradeCost">0</td>
 							</tr>
 							<tr>
-								<td align = "right" class = "totalLabel">Trade Cost:</td>
-								<td align = "center" id = "totalTradeCost">0</td>
+								<td align = "right" class = "totalLabel">Profit:</td>
+								<td align = "center" id = "totalTradeProfit">0</td>
+							</tr>
+						</tbody>
+					</table>
+					<table>
+						<thead>
+							<tr>
+								<th align = "center" colspan = "2">Verdict</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align = "center" colspan = "2" id = "verdict"></th>
 							</tr>
 						</tbody>
 					</table>
