@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2020 at 01:03 AM
+-- Generation Time: Apr 05, 2020 at 07:13 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -41,7 +41,7 @@ INSERT INTO `factions` (`factionID`, `factionName`) VALUES
 (1, 'Amarr'),
 (2, 'Caldari'),
 (3, 'Gallente'),
-(4, 'Minmater'),
+(4, 'Minmatar'),
 (5, 'ORE');
 
 -- --------------------------------------------------------
