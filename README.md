@@ -45,9 +45,9 @@ Colours will alternate on click/hover/active for buttons.
 No popups are used but an accordion-style dropdown list is implemented. Depending on the number of levels the Blues will be used for the level headers with '+' to denote that it can be opened and '-' to denote that it can be closed. The lowest level be a single container which will include a list with clickable items.
 
 ### Example Pages
-  * [Landing Page](LandingPage.php)
-  * [Directory](Directory.php)
-  * [Search Results](SearchResults.php)
+  * [Index](csi3140project/csi3140project/index.php)
+  * [Directory](csi3140project/csi3140project/Directory.php)
+  * [Search Results](csi3140project/csi3140project/SearchResults.php)
   
 ## Deployment + Test Instructions
   * Download and install XAMPP (located at https://www.apachefriends.org/index.html)
