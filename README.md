@@ -62,7 +62,7 @@ No popups are used but an accordion-style dropdown list is implemented. Dependin
     * Create a csi3140project database. Then import 'csi3140project.sql' into that database.
   * Navigate to localhost/csi3140project
     * If setup succeeded then the webpage should match example images (as shown below), if not then the login settings may need to be changed in index.php, Directory.php, and SearchResults.php
-    * At the time of the screenshots below, the remote API had a bad pull of data and so values are showing as 0. Hopefully this gets corrected by the time you are able to implement the project. Values can be compared against https://market.fuzzwork.co.uk/.
+    * Values can be compared against https://market.fuzzwork.co.uk/.
 - - - -
 ![Example Index](csi3140project/ExampleIndex.PNG)
 ![Example Index Feature](csi3140project/ExampleIndex2.PNG)

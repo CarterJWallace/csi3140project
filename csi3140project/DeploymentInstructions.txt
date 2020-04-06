@@ -10,8 +10,6 @@ Steps for setting up website:
 	- In 'csi3140project' database, import csi3140project.sql from directory.
 - Navigate to localhost/csi3140project
 	- If setup has succeeded then webpage should display the same as the example images.
-		- At time of screenshot, the remote API website had a bad data pull and so item values are 0.
-		- Hopefully, this is corrected by the time you implement your copy of the website.
 		- Values can be compared against the source at https://market.fuzzwork.co.uk/
 	- If failure messages occur from SQL lines, could possibly be login issues.
 		- Login and SQL DB information has to be changed in each page, index.php, Directory.php, and SearchResults.php
