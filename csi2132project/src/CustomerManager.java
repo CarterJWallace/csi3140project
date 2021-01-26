@@ -7,9 +7,9 @@ public class CustomerManager {
 	private ResultSet rset;
 	private String tableName;
 	
-	static final String DB_URL = "jdbc:postgresql://web0.site.uottawa.ca:15432/aman070";
-	static final String USER = "aman070";
-	static final String PASS = "Mansw12010-";
+	static final String DB_URL = "";
+	static final String USER = "";
+	static final String PASS = "";
 	
 	public CustomerManager(String tableName) {
 		try {
