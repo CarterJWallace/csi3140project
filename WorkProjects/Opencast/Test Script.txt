@@ -1,0 +1,49 @@
+#########################
+### SED TEST FUNCTION ###
+#########################
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+TEST_LOG_FILE="$DIR/test.log"
+ME=$DIR/`basename $0`
+# CLEAR LOCAL LOG FILE
+> $TEST_LOG_FILE
+function SED-TEST(){
+        # SET GIVEN VARIABLES
+        BEFORE_TEXT=$1
+        AFTER_TEXT=$2
+        LOCATION=$3
+        # CHECK IF $BEFORE_TEXT EXISTS AT $LOCATION
+        BEFORE_GREP=`grep "$BEFORE_TEXT" $LOCATION`
+        # BRACKET LOG
+        echo "----------------------------------------------------------------------------------------" >> $TEST_LOG_FILE
+        if [ ! -z "$BEFORE_GREP" ]
+        then
+                # LOG THAT THE PATTERN WAS FOUND
+                echo "SUCCESS: Pattern ' $BEFORE_TEXT ' found, replacing text..." >> $TEST_LOG_FILE
+                # LOG WHAT COMMAND WILL BE RUN
+                echo 'Running command: sudo sed -i "s/'$BEFORE_TEXT'/'$AFTER_TEXT'/g"' $LOCATION >> $TEST_LOG_FILE
+                # RUN SED COMMAND
+                sudo sed -i "s/$BEFORE_TEXT/$AFTER_TEXT/g" $LOCATION
+                # TEST IF SED WAS COMPLETED SUCCESSFULLY
+                AFTER_GREP=`grep "$AFTER_TEXT" $LOCATION`
+                if [ -z "$AFTER_GREP" ]
+                then
+                        # LOG THAT THE SED WAS NOT SUCCESSFUL
+                        echo "ERROR: ' $BEFORE_GREP ' was not successfully replaced with ' $AFTER_TEXT '" >> $TEST_LOG_FILE
+                        echo "Line "`grep -n "$BEFORE_TEXT" $LOCATION | cut -f1 -d:`" not updated" >> $TEST_LOG_FILE
+                else
+                        # LOG THAT THE SED WAS SUCCESSFUL
+                        echo "SUCCESS: ' $BEFORE_GREP ' was replaced with ' $AFTER_TEXT '" >> $TEST_LOG_FILE
+                        echo "Line "`grep -n "$AFTER_TEXT" $LOCATION | cut -f1 -d:`" updated" >> $TEST_LOG_FILE
+                fi
+        else
+                # LOG THAT THE PATTERN WAS NOT FOUND
+                echo "ERROR: Pattern ' $BEFORE_TEXT ' not found." >> $TEST_LOG_FILE
+                # LOG WHAT COMMAND WAS NOT RUN
+                echo 'Skipping command: sudo sed -i "s/'$BEFORE_TEXT'/'$AFTER_TEXT'/g"' $LOCATION >> $TEST_LOG_FILE
+                FILE=`basename $LOCATION`
+                LINE=`grep -n "SED-TEST $BEFORE_TEXT $AFTER_TEXT \\$OC_CONFIG_PATH\/$FILE" $ME | cut -f1 -d:`
+                echo "Command found at line $LINE of $ME" >> $TEST_LOG_FILE
+        fi
+        # BRACKET LOG
+        echo "----------------------------------------------------------------------------------------" >> $TEST_LOG_FILE
+}
